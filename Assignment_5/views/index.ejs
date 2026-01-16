@@ -1,0 +1,13 @@
+<%- include("layouts/boilerplate.ejs") %>
+
+<div class="container mt-4">
+    <div class="products">
+        <% for (let product of allProducts) { %>
+            <div class="card mb-2">
+                <div class="card-body">
+                    <h5><%= product.product_name %></h5>
+                </div>
+            </div>
+        <% } %>
+    </div>
+</div>
