@@ -2,93 +2,53 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Register | ShopKart</title>
+    <title>Signup | ShopKart</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- Bootstrap CDN -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Custom CSS -->
     <link rel="stylesheet" href="css/style.css">
 </head>
-<body class="bg-light">
+<body class="bw-theme">
 
 <div class="container d-flex justify-content-center align-items-center min-vh-100">
 
-    <div class="card shadow-lg p-4" style="width: 100%; max-width: 420px;">
+    <div class="card p-4 shadow" style="max-width:420px;width:100%;">
+        <h3 class="text-center mb-3">Create Account</h3>
 
-        <!-- Logo -->
-        <div class="text-center mb-3">
-            <h2 class="fw-bold text-primary">ShopKart</h2>
-            <p class="text-muted mb-0">Create your account</p>
-        </div>
-
-        <!-- Registration Form -->
         <form id="registrationForm">
 
-            <!-- Username -->
-            <div class="mb-3">
-                <label class="form-label">Username</label>
-                <input type="text" id="username" class="form-control" placeholder="Enter username">
-            </div>
+            <input type="text" id="username" class="form-control mb-2" placeholder="Username">
+            <input type="email" id="email" class="form-control mb-2" placeholder="Email">
+            <input type="password" id="password" class="form-control mb-2" placeholder="Password">
 
-            <!-- Password -->
-            <div class="mb-3">
-                <label class="form-label">Password</label>
-                <input type="password" id="password" class="form-control" placeholder="Enter password">
-            </div>
+            <select id="country" class="form-select mb-2">
+                <option value="">Select Country</option>
+                <option>India</option>
+                <option>USA</option>
+                <option>UK</option>
+            </select>
 
-            <!-- Email -->
-            <div class="mb-3">
-                <label class="form-label">Email</label>
-                <input type="email" id="email" class="form-control" placeholder="Enter email">
-            </div>
+            <input type="text" id="zip" class="form-control mb-2" placeholder="Zip Code">
 
-            <!-- Gender -->
-            <div class="mb-3">
-                <label class="form-label">Gender</label><br>
+            <textarea id="address" class="form-control mb-2" placeholder="Address"></textarea>
+
+            <div class="mb-2">
                 <input type="radio" name="gender" value="Male"> Male
                 <input type="radio" name="gender" value="Female" class="ms-3"> Female
             </div>
 
-            <!-- Country -->
-            <div class="mb-3">
-                <label class="form-label">Country</label>
-                <select id="country" class="form-select">
-                    <option value="">Select Country</option>
-                    <option>India</option>
-                    <option>USA</option>
-                    <option>UK</option>
-                    <option>Canada</option>
-                    <option>Australia</option>
-                </select>
-            </div>
-
-            <!-- Zip Code -->
-            <div class="mb-3">
-                <label class="form-label">Zip Code</label>
-                <input type="text" id="zip" class="form-control" placeholder="Enter zip code">
-            </div>
-
-            <!-- Address -->
-            <div class="mb-3">
-                <label class="form-label">Address</label>
-                <textarea id="address" class="form-control" rows="2"
-                          placeholder="Enter your address"></textarea>
-            </div>
-
-            <!-- Terms -->
-            <div class="mb-3 form-check">
+            <div class="form-check mb-3">
                 <input type="checkbox" id="terms" class="form-check-input">
-                <label class="form-check-label">I agree to the terms & conditions</label>
+                <label class="form-check-label">Accept Terms</label>
             </div>
 
-            <!-- Submit -->
-            <button type="submit" class="btn btn-primary w-100">
-                Register
-            </button>
+            <button class="btn btn-dark w-100">Sign Up</button>
+        </form>
 
-        </form> 
+        <p class="text-center mt-3">
+            Already registered?
+            <a href="login.html">Login</a>
+        </p>
     </div>
 </div>
 

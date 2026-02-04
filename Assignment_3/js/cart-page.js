@@ -1,13 +1,13 @@
 let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
 function renderCartPage() {
-    const cartItemsDiv = document.getElementById("cartItems");
+    const cartItems = document.getElementById("cartItems");
     const cartTotal = document.getElementById("cartTotal");
 
-    cartItemsDiv.innerHTML = "";
+    cartItems.innerHTML = "";
 
     if (cart.length === 0) {
-        cartItemsDiv.innerHTML = `<p class="text-muted">Your cart is empty.</p>`;
+        cartItems.innerHTML = "<p>Your cart is empty.</p>";
         cartTotal.innerText = 0;
         return;
     }
@@ -17,21 +17,19 @@ function renderCartPage() {
     cart.forEach((item, index) => {
         total += item.price;
 
-        cartItemsDiv.innerHTML += `
-            <div class="card mb-3">
-                <div class="card-body d-flex justify-content-between align-items-center">
-                    <div class="d-flex align-items-center gap-3">
-                        <img src="${item.image}" width="80" height="80" style="object-fit: cover;">
-                        <div>
-                            <h6 class="mb-1">${item.name}</h6>
-                            <small>₹${item.price}</small>
-                        </div>
-                    </div>
-                    <button class="btn btn-danger btn-sm"
-                        onclick="removeFromCart(${index})">
-                        Remove
-                    </button>
+        cartItems.innerHTML += `
+            <div class="cart-item">
+                <img src="${item.image}" alt="${item.name}" class="cart-img">
+
+                <div class="cart-info">
+                    <h6>${item.name}</h6>
+                    <span>₹${item.price}</span>
                 </div>
+
+                <button class="btn btn-outline-dark btn-sm"
+                        onclick="removeFromCart(${index})">
+                    Remove
+                </button>
             </div>
         `;
     });
@@ -51,7 +49,7 @@ function placeOrder() {
         return;
     }
 
-    alert("✅ Your order has been placed successfully!");
+    alert("✅ Your order has been placed!");
     localStorage.removeItem("cart");
     cart = [];
     renderCartPage();

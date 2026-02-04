@@ -1,52 +1,393 @@
-body {
-    padding-top: 80px;
+/* ================= GLOBAL ================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
+
+body {
+    padding-top: 70px;
+    background-color: #ffffff;
+    color: #1a1a1a;
+    font-family: 'Inter', 'Segoe UI', Roboto, -apple-system, sans-serif;
+    line-height: 1.6;
+}
+
+/* Apply gradient background only to home page */
+body:not(.cart-page) {
+    background: linear-gradient(to bottom, #f8f9fa 0%, #ffffff 100%);
+}
+
+/* ================= NAVBAR ================= */
 
 .navbar {
-    z-index: 1050;
+    background-color: #ffffff;
+    border-bottom: 1px solid #e0e0e0;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
 }
 
-
-
-.product-card {
-    max-width: 260px;
-    margin: auto;
-    background: #fff;
-    border-radius: 12px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+.navbar-brand {
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: #000;
+    letter-spacing: -0.5px;
 }
 
-.product-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 16px 35px rgba(0, 0, 0, 0.15);
+.nav-link {
+    color: #4a4a4a;
+    font-weight: 500;
+    padding: 0.5rem 1rem !important;
+    transition: color 0.2s ease;
+    position: relative;
 }
 
-
-.product-card img {
-    width: 100%;          /* FULL WIDTH */
-    height: 200px;        /* Fixed height */
-    object-fit: cover;    /* Fill area properly */
-    border-bottom: 1px solid #eee;
+.nav-link:hover {
+    color: #000;
 }
 
-.product-card .card-body {
-    padding: 12px;
+.nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 50%;
+    background-color: #000;
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
 }
 
-.product-card .card-title {
-    font-size: 1rem;
-    margin-bottom: 4px;
+.nav-link:hover::after {
+    width: 80%;
 }
 
-.product-card .card-text {
+/* ================= HERO BANNER ================= */
+
+.hero-banner {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    margin-bottom: 30px;
+}
+
+.hero-banner::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100px;
+    background: linear-gradient(to top, rgba(255,255,255,0.8), transparent);
+    pointer-events: none;
+}
+
+.hero-banner img {
+    width: 100%;
+    height: 460px;
+    object-fit: cover;
+    display: block;
+    filter: contrast(1.05);
+}
+
+/* ================= PRODUCT SECTION ================= */
+
+.product-section {
+    padding: 60px 0;
+    background: transparent;
+}
+
+.product-section h2 {
+    font-weight: 700;
+    margin-bottom: 40px;
+    color: #1a1a1a;
+    font-size: 2rem;
+}
+
+/* ================= PRODUCT CARD ================= */
+
+.card {
+    border: none;
+    border-radius: 16px;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    background: #ffffff;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.card:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+}
+
+.card img {
+    border-top-left-radius: 16px;
+    border-top-right-radius: 16px;
+    transition: transform 0.5s ease;
+    height: 280px;
+    object-fit: cover;
+}
+
+.card:hover img {
+    transform: scale(1.08);
+}
+
+.card-body {
+    padding: 1.5rem;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.card-body h6 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 6px;
+    color: #1a1a1a;
+    letter-spacing: -0.3px;
+}
+
+.card-body p {
     font-size: 0.85rem;
+    color: #777;
+    margin-bottom: 12px;
+    flex-grow: 1;
+}
+
+.card-body strong {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #000;
+    margin-bottom: 15px;
+    display: block;
+}
+
+/* ================= BUTTONS ================= */
+
+.btn {
+    border-radius: 10px;
+    padding: 12px 24px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.btn-dark {
+    background: linear-gradient(135deg, #1a1a1a 0%, #000000 100%);
+    border: none;
+    color: #fff;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.btn-dark:hover {
+    background: linear-gradient(135deg, #000000 0%, #1a1a1a 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+    color: #fff;
+}
+
+.btn-dark:active {
+    transform: translateY(0);
+}
+
+.btn-outline-dark {
+    border: 2px solid #1a1a1a;
+    color: #1a1a1a;
+    background: transparent;
+}
+
+.btn-outline-dark:hover {
+    background-color: #1a1a1a;
+    color: #fff;
+    border-color: #1a1a1a;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* ================= CART BADGE ================= */
+
+.badge {
+    font-size: 0.65rem;
+    font-weight: 700;
+    padding: 0.35em 0.55em;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #ff6b6b 0%, #ee5a52 100%);
+    box-shadow: 0 2px 8px rgba(255, 107, 107, 0.4);
+}
+
+/* ================= CART BUTTON ================= */
+
+.btn.position-relative {
+    border-radius: 10px;
+    font-weight: 600;
+}
+
+/* ================= DROPDOWN ================= */
+
+.dropdown-toggle {
+    border-radius: 10px;
+    padding: 10px 20px;
+    font-weight: 500;
+    background-color: #f8f9fa;
+    border: 1px solid #e0e0e0;
+    color: #1a1a1a;
+    transition: all 0.3s ease;
+}
+
+.dropdown-toggle:hover {
+    background-color: #e9ecef;
+    border-color: #d0d0d0;
+}
+
+/* ================= ANIMATIONS ================= */
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.card {
+    animation: fadeIn 0.6s ease-out;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 768px) {
+    .hero-banner img {
+        height: 300px;
+    }
+    
+    .product-section {
+        padding: 40px 0;
+    }
+    
+    .card-body h6 {
+        font-size: 1rem;
+    }
+    
+    body {
+        padding-top: 60px;
+    }
+}
+
+/* ================= UTILITY CLASSES ================= */
+
+.text-gradient {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* ================= ROW SPACING ================= */
+
+.row {
+    margin-bottom: -20px;
+}
+
+.row > [class*='col-'] {
+    margin-bottom: 30px;
+}
+
+/* ================= CART PAGE IMAGE FIX ================= */
+
+/* ================= CART PAGE LAYOUT ================= */
+
+.cart-page #cartItems {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.cart-item {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 18px 20px;
+    background: #fff;
+    border-radius: 14px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.cart-img {
+    width: 90px;
+    height: 90px;
+    object-fit: cover;
+    border-radius: 10px;
+    flex-shrink: 0;
+}
+
+.cart-info {
+    flex-grow: 1;
+}
+
+.cart-info h6 {
+    margin-bottom: 6px;
+    font-weight: 600;
+}
+
+.cart-info span {
     color: #555;
+    font-size: 0.9rem;
 }
 
-.product-price {
-    font-weight: bold;
-    margin: 6px 0;
+
+/* ================= FOOTER ================= */
+
+.site-footer {
+    background-color: #000;
+    color: #fff;
+    padding: 60px 0 30px;
+    margin-top: 80px;
 }
 
+.site-footer h5,
+.site-footer h6 {
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+.site-footer p {
+    color: #ccc;
+    font-size: 0.9rem;
+    line-height: 1.6;
+}
+
+.footer-links {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-links li {
+    margin-bottom: 8px;
+}
+
+.footer-links a {
+    color: #ccc;
+    text-decoration: none;
+    font-size: 0.9rem;
+}
+
+.footer-links a:hover {
+    color: #fff;
+    text-decoration: underline;
+}
+
+.footer-divider {
+    border-color: #333;
+    margin: 30px 0;
+}
 

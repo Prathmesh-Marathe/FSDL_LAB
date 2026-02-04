@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Deepfake Detection Models</title>
+    <style>
+        table {
+            width: 40%;
+            border-collapse: collapse;
+            font-family: Arial, sans-serif;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+            vertical-align: top;
+        }
+        th {
+            background-color: #f4f4f4;
+            font-weight: bold;
+        }
+        tr:nth-child(even) {
+            background-color: #fafafa;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Comparison of Deepfake Detection Models</h2>
+
+<table>
+    <thead>
+        <tr>
+            <th>Model</th>
+            <th>Dataset Used</th>
+            <th>Reported Performance</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>XceptionNet (Frame-level CNN)</td>
+            <td>FaceForensics++</td>
+            <td>Accuracy: 90–93%<br>AUC: 0.95–0.97</td>
+        </tr>
+        <tr>
+            <td>CNN + LSTM</td>
+            <td>FaceForensics++, DFDC</td>
+            <td>Accuracy: 92–94%<br>F1: 0.90–0.92</td>
+        </tr>
+        <tr>
+            <td>C3D</td>
+            <td>FaceForensics++</td>
+            <td>Accuracy: 91–93%<br>AUC: ~0.95</td>
+        </tr>
+        <tr>
+            <td>ResNet3D-18</td>
+            <td>Celeb-DF</td>
+            <td>Accuracy: 92–94%<br>AUC: ~0.96</td>
+        </tr>
+        <tr>
+            <td>ViViT (Video Transformer)</td>
+            <td>FaceForensics++</td>
+            <td>Accuracy: 94–96%<br>AUC: 0.97–0.98</td>
+        </tr>
+        <tr>
+            <td>CNN–Transformer Hybrid</td>
+            <td>Celeb-DF</td>
+            <td>Accuracy: 92–94%<br>F1: ~0.91</td>
+        </tr>
+        <tr>
+            <td>Temporal Attention Models</td>
+            <td>FaceForensics++</td>
+            <td>Accuracy: 92–94%<br>AUC: ~0.96</td>
+        </tr>
+    </tbody>
+</table>
+
+</body>
+</html>
