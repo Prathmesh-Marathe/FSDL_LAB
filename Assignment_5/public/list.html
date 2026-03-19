@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Packages List</title>
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+  <div class="container">
+    <h2>Available Travel Packages</h2>
+    <ul id="packageList"></ul>
+    <a class="back-link" href="/">← Back</a>
+  </div>
+  <script>
+    async function loadPackages() {
+      try {
+        const res = await fetch('/api/packages');
+        const packages = await res.json();
+
+        const list = document.getElementById('packageList');
+        list.innerHTML = '';
+
+        if (!packages.length) {
+          list.innerHTML = '<li>No packages found. Add one first!</li>';
+          return;
+        }
+
+        packages.forEach(pkg => {
+          const li = document.createElement('li');
+          li.innerHTML = `
+            <b>${pkg.destination}</b><br>
+            Price: ₹${pkg.price}<br>
+            Duration: ${pkg.days} Days
+          `;
+          list.appendChild(li);
+        });
+      } catch (error) {
+        console.error('Could not load packages', error);
+        document.getElementById('packageList').innerHTML = '<li>Error loading packages</li>';
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', loadPackages);
+  </script>
+</body>
+</html>
